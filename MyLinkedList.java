@@ -51,6 +51,15 @@ public class MyLinkedList{
    return original;
  }
 
- // public String toString();
+ public String toString() {
+   if (size == 0) {
+     return "[]";
+   }
+   String str = "[";
+   for (int i = 0; i < size - 1; i++) {
+     str += getNode(i).getData() + ", ";
+   }
+   return str + getNode(size-1).getData() + "]";
+ }
 
 }
