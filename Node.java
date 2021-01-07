@@ -27,7 +27,7 @@ public class Node{
    next = set;
  }
 
- public void getPrev(Node set) {
+ public void setPrev(Node set) {
    prev = set;
  }
 
