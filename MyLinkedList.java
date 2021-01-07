@@ -18,7 +18,6 @@ public class MyLinkedList{
      end = add;
    } else {
       end.setNext(add);
-      add.setPrev(end);
       end = add;
     }
    size++;
@@ -33,17 +32,25 @@ public class MyLinkedList{
    return current;
  }
 
- // public void add(int index, String value);
+ //public void add(int index, String value)
+
 
  public String get(int index) {
-   if (index >= size) {
+   if (index >= size || index < 0) {
      throw new IndexOutOfBoundsException();
    }
    return getNode(index).getData();
  }
 
- // public String set(int index, String value);
- //
+ public String set(int index, String value) {
+   if (index >= size || index < 0) {
+     throw new IndexOutOfBoundsException();
+   }
+   String original = getNode(index).getData();
+   getNode(index).setData(value);
+   return original;
+ }
+
  // public String toString();
 
 }
