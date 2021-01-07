@@ -6,13 +6,15 @@ public class MyLinkedList{
  private Node start,end;
 
  public MyLinkedList(){
-   LinkedList<String> list = new LinkedList<String>();
+   size = 0;
  }
 
- // public int size();
- //
- // public boolean add(String value);
- //
+ public int size() {
+   return size;
+ }
+
+  // public boolean add(String value);
+  //
  // public void add(int index, String value);
  //
  // public String get(int index);
