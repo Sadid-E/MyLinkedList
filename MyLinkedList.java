@@ -13,8 +13,19 @@ public class MyLinkedList{
    return size;
  }
 
-  // public boolean add(String value);
-  //
+ public boolean add(String value) {
+   Node add = new Node(value);
+   if (size == 0) {
+     start = add;
+     end = add;
+   } else {
+      end.setNext(add);
+      end = add;
+      size++;
+    }
+  return true;
+ }
+
  // public void add(int index, String value);
  //
  // public String get(int index);
