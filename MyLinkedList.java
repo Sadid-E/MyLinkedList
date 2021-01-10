@@ -47,20 +47,18 @@ public class MyLinkedList{
         start = add;
         add.setNext(current);
         current.setPrev(add);
-        size++;
       } else
       if (index == size) {
         end = add;
         add.setPrev(before);
         before.setNext(add);
-        size++;
       } else {
         before.setNext(add);
         add.setPrev(before);
         add.setNext(current);
         current.setPrev(add);
-        size++;
       }
+      size++;
     }
  }
 
@@ -90,5 +88,38 @@ public class MyLinkedList{
    }
    return str + getNode(size-1).getData() + "]";
  }
+
+public String toStringReversed() {
+  if (size == 0) {
+    return "[]";
+  }
+  String str = "[";
+  for (int i = size - 1; i > 0; i--) {
+    str += getNode(i).getData() + ", ";
+  }
+  return str + getNode(0).getData() + "]";
+}
+
+public String remove(int index) {
+  String original = getNode(index).getData();
+  if (index >= size || index < 0) {
+    throw new IndexOutOfBoundsException();
+  } else
+  if (size == 1) {
+    start.setNext(null);
+    end.setPrev(null);
+  } else
+  if (index == 0) {
+    start = start.getNext();
+  } else
+  if (index == size - 1) {
+    end = end.getPrev();
+  } else {
+    getNode(index-1).setNext(getNode(index+1));
+    getNode(index+1).setPrev(getNode(index-1));
+  }
+  size--;
+  return original;
+}
 
 }
