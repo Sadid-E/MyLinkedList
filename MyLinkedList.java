@@ -101,18 +101,20 @@ public String toStringReversed() {
 }
 
 public String remove(int index) {
-  String original = getNode(index).getData();
   if (index >= size || index < 0) {
     throw new IndexOutOfBoundsException();
-  } else
+  }
+  String original = getNode(index).getData();
   if (size == 1) {
     start.setNext(null);
     end.setPrev(null);
   } else
   if (index == 0) {
+    getNode(1).setPrev(null);
     start = start.getNext();
   } else
   if (index == size - 1) {
+    getNode(size-2).setNext(null);
     end = end.getPrev();
   } else {
     getNode(index-1).setNext(getNode(index+1));
